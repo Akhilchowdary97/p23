@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add AccessDetails</title>
+</head>
+<body>
+    <h1>Fill The Form To Add AccessDetails To The Table</h1>
+    <form method="POST">
+        {% csrf_token %}
+        {% if webpages %}
+        <label for="webapge">Webapge</label>
+        <select name="webapge" id="webpage">
+        {% for webapge in webpages %}
+          <option value="{{webpage}}">{{webpage.name}}</option>
+        {% endfor %}
+        </select>
+        {% endif %}
+        <label for="webpage">Webpage</label>
+        <input type="text" name="webpage" id="webpage">
+        <label for="datetime">DateTime</label>
+        <input type="datetime" name="datetime" id="datetime">
+        <input type="submit" value="Add AccessDetails">
+    </form>
+</body>
+</html>

@@ -22,4 +22,9 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('add_topic/',views.create_topic,name="add_topic"),
     path('add_webpage/',views.create_webpage,name="add_webpage"),
+    path('display_topic/',views.display_topics,name="display_topic"),
+    path('display_topic/<id>',views.display_topic,name="display_topic"),
+    path('display_webpage/',views.display_webpages,name="display_webpage"),
+    path('display_webpage/<id>',views.display_webpage,name="display_webpage"),
+    path('add_access/',views.create_access,name="add_access"),
 ]

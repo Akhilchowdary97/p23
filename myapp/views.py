@@ -24,3 +24,28 @@ def create_webpage(request):
         return HttpResponse("<h2>Webpage Added Successfully</h2>")
     topics=Topic.objects.all()
     return render(request,"create_webpage.html",context={'topics':topics})
+def display_topics(request):
+    topics=Topic.objects.all()
+    return render(request,"display_topic.html",context={'topics':topics})
+def display_webpages(request):
+    webpages=Webpage.objects.all()
+    return render(request,"display_webpage.html",context={'webpages':webpages})
+def display_topic(request,id):
+    topics=Topic.objects.filter(id=id)
+    return render(request,"display_topic.html",context={'topics':topics})
+def display_webpage(request,id):
+    webpages=Webpage.objects.filter(id=id)
+    return render(request,"display_webpage.html",context={'webpages':webpages})
+def create_access(request):
+    if request.method=="POST":
+        topic=request.POST.get('topic')
+        webpage=request.POST.get('webpage')
+        datetime=request.POST.get("datetime")
+        t=Topic.objects.get_or_create(topic_name=topic)[0]
+        w=Webpage.objects.get_or_create(topic=t,name=name,url=url)[0]
+        w.save()
+        
+        return HttpResponse("<h2>Webpage Added Successfully</h2>")
+    topics=Topic.objects.all()
+    webpages=Webpage.objects.all()
+    return render(request,"create_accessdetails.html",context={'webpages':webpages})
