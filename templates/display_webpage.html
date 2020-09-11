@@ -19,7 +19,7 @@
     <tr>
         <td>{{webpage.id}}</td>
         <td><a href="{% url 'display_topic' id=webpage.topic.id %}">{{webpage.topic.topic_name}}</a></td>
-        <td><a href="{% url 'display_webpage' id=webpage.id %}">{{webpage.name}}</a></td>
+        <td><a href="{% url 'display_webpage' wid=webpage.id %}">{{webpage.name}}</a></td>
         <td><a href="{{webpage.url}}">{{webpage.url}}</a></td>
     </tr>
     {% endfor %}

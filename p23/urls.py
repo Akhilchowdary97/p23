@@ -25,6 +25,10 @@ urlpatterns = [
     path('display_topic/',views.display_topics,name="display_topic"),
     path('display_topic/<id>',views.display_topic,name="display_topic"),
     path('display_webpage/',views.display_webpages,name="display_webpage"),
-    path('display_webpage/<id>',views.display_webpage,name="display_webpage"),
+    path('display_webpage/<wid>',views.display_webpage,name="display_webpage"),
     path('add_access/',views.create_access,name="add_access"),
+    path('display_access/',views.display_access1,name='display_access'),
+    path('display_access/<aid>',views.display_access,name='display_access'),
+    path('search/',views.search,name="search"),
 ]
+
