@@ -30,5 +30,10 @@ urlpatterns = [
     path('display_access/',views.display_access1,name='display_access'),
     path('display_access/<aid>',views.display_access,name='display_access'),
     path('search/',views.search,name="search"),
+    path('update/topic/<id>',views.update_topic,name="update_topic"),
+    path('update/webpage/<id>',views.update_webpage,name="update_webpage"),
+    path('delete/topic/<id>',views.delete_topic,name="delete_topic"),
+    path('delete/webpage/<wid>',views.delete_webpage,name="delete_webpage"),
 ]
+
 
