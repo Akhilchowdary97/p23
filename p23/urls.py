@@ -17,7 +17,6 @@ from django.contrib import admin
 from django.urls import path
 from myapp import views
 
-
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('add_topic/',views.create_topic,name="add_topic"),
@@ -34,6 +33,17 @@ urlpatterns = [
     path('update/webpage/<id>',views.update_webpage,name="update_webpage"),
     path('delete/topic/<id>',views.delete_topic,name="delete_topic"),
     path('delete/webpage/<wid>',views.delete_webpage,name="delete_webpage"),
+    path('disp_img/<pid>',views.disp_img,name="disp_img"),
+    path('topic_form/',views.topic_modelform,name="topicmodel_form"),
+    path('webform/',views.webform,name="webform"),
 ]
+
+from django.conf import settings
+from django.conf.urls.static import static
+if settings.DEBUG:
+    urlpatterns += static(settings.MEDIA_URL,
+                              document_root=settings.MEDIA_ROOT)
+
+
 
 

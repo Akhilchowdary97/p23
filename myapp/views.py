@@ -1,6 +1,7 @@
 from django.shortcuts import render,redirect
 from django.http import HttpResponse
 from myapp.models import *
+from myapp.forms import *
 # Create your views here.
 def create_topic(request):
     if request.method=="POST":
@@ -87,4 +88,24 @@ def delete_webpage(request,wid):
         w.delete()
         return HttpResponse("<h1>deletion is successful </h1>")
     return HttpResponse("<h1>Record not found </h1>")
-
+def disp_img(request,pid):
+    profile=ProfilePic.objects.get(id=pid)
+    return render(request,"display_image.html",{'profile':profile})
+def topic_modelform(request):
+    if request.method=="POST":
+        form=TopicForm(request.POST)
+        if form.is_valid():
+            form.save()
+        else:
+            return render(request,'modelform.html',{'form':form})
+    form=TopicForm()
+    return render(request,'modelform.html',{'form':form})
+def webform(request):
+    if request.method=="POST":
+        form=WebpageForm(request.POST)
+        if form.is_valid():
+            form.save()
+        else:
+            return render(request,'modelform.html',{'form':form})
+    form=WebpageForm()
+    return render(request,'modelform.html',{'form':form})
