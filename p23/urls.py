@@ -36,6 +36,7 @@ urlpatterns = [
     path('disp_img/<pid>',views.disp_img,name="disp_img"),
     path('topic_form/',views.topic_modelform,name="topicmodel_form"),
     path('webform/',views.webform,name="webform"),
+    path('create_user/',views.create_user,name="create_user"),
 ]
 
 from django.conf import settings
