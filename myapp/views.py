@@ -119,3 +119,5 @@ def create_user(request):
             user.save()
     form=UserModelForm()
     return render (request,"modelform.html",{'form':form})
+def filter_demo(request):
+    return render(request,"filter_demo.html",{'data':"hello world",'a':10,'b':20,'num':1})
